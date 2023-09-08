@@ -27,6 +27,28 @@ public class Main extends Application
 			
 			primaryStage.setTitle("Game Library");
 			
+			/*
+			 * Games class
+			 * 	    Video Games
+			 * 			GenreClass
+			 * 				- Action
+			 * 				- Adventure
+			 * 				- Puzzle
+			 * 				- Etc.
+			 * 			MetacriticScore
+			 * 			DownloadSize
+			 * 			ReleaseDate
+			 * 			UserReviews
+			 * 				HoursPlayed
+			 * 				PositivesOfGame
+			 * 				NegativesOfGame
+			 * 				
+			 * 	    Board Games
+			 * 		Card Games
+			 * 		
+			 * 
+			 * */
+			
 			//create a gridpane layout
 			GridPane grid = new GridPane();
 			
