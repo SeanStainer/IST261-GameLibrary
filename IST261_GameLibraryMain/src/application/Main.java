@@ -1,5 +1,10 @@
 package application;
 	
+import Model.GameLibraryModel.BoardGames;
+import Model.GameLibraryModel.CardGames;
+import Model.GameLibraryModel.Developers;
+import Model.GameLibraryModel.Games;
+import Model.GameLibraryModel.VideoGames;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
@@ -24,29 +29,9 @@ public class Main extends Application
 	{
 		try 
 		{
-			
-			
-			/*
-			 * Games class
-			 * 	    Video Games
-			 * 			GenreClass
-			 * 				- Action
-			 * 				- Adventure
-			 * 				- Puzzle
-			 * 				- Etc.
-			 * 			MetacriticScore
-			 * 			DownloadSize
-			 * 			ReleaseDate
-			 * 			UserReviews
-			 * 				HoursPlayed
-			 * 				PositivesOfGame
-			 * 				NegativesOfGame
-			 * 				
-			 * 	    Board Games
-			 * 		Card Games
-			 * 		
-			 * 
-			 * */
+			//test the output
+			VideoGames game1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "May 18, 2015");
+			System.out.println(game1.toString());
 			
 		} 
 		catch(Exception e) 
