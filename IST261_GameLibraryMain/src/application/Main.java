@@ -1,10 +1,10 @@
 package application;
 	
-import Model.GameLibraryModel.BoardGames;
-import Model.GameLibraryModel.CardGames;
-import Model.GameLibraryModel.Developers;
-import Model.GameLibraryModel.Games;
-import Model.GameLibraryModel.VideoGames;
+import Model.BoardGames;
+import Model.CardGames;
+import Model.VideoGames;
+import Model.Developers;
+import Model.Games;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
