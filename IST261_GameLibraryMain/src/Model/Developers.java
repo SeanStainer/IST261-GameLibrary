@@ -4,75 +4,57 @@ package Model;
 public class Developers
 {
 	//stores information on the developers of the game
-	private String graphicsDesigner;
-	private String publisher;
-	private String programmer;
-	private String artist;
-	private String soundDesigner;
+	private String jobTitle;
+	private String firstName;
+	private String lastName;
+
 	
 	//default constructor
 	public Developers()
 	{
 		//initialize each variable
-		this.graphicsDesigner = "";
-		this.publisher = "";
-		this.programmer = "";
-		this.artist = "";
-		this.soundDesigner = "";
+		this.jobTitle = "";
+		this.firstName = "";
+		this.lastName = "";
+
 	}
 	
 	//constructor overload
-	public Developers(String graphicsDesigner, String publisher, String programmer, String artist, String soundDesigner)
+	public Developers(String jobTitle, String firstName, String lastName)
 	{
 		//initialize variables based on parameters passed
-		this.graphicsDesigner = graphicsDesigner;
-		this.publisher = publisher;
-		this.programmer = programmer;
-		this.artist = artist;
-		this.soundDesigner = soundDesigner;
+		this.jobTitle = jobTitle;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
-		//getter and setter methods
-	public String getGraphicsDesigner() 
-	{
-		return graphicsDesigner;
-	}
-	
-	public void setGraphicsDesigner(String graphicsDesigner) 
-	{
-		this.graphicsDesigner = graphicsDesigner;
-	}
-	
-	public String getPublisher() {
-		return publisher;
-	}
-	
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-	
-	public String getProgrammer() {
-		return programmer;
-	}
-	
-	public void setProgrammer(String programmer) {
-		this.programmer = programmer;
-	}
-	
-	public String getArtist() {
-		return artist;
-	}
-	
-	public void setArtist(String artist) {
-			this.artist = artist;
+		
+	//getter and setter methods
+	public String getJobTitle() {
+		return jobTitle;
 	}
 
-	public String getSoundDesigner() {
-		return soundDesigner;
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
 	}
 
-	public void setSoundDesigner(String soundDesigner) {
-		this.soundDesigner = soundDesigner;
+	public String getFirstName() {
+		return firstName;
 	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	
+	
 		
 		
 }

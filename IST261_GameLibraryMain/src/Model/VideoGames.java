@@ -1,14 +1,21 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class VideoGames extends Games
 {
+	//stores release date for game
 	private String releaseDate;
+	//stores developer information
+	private ArrayList<Developers> developerInfo;
+	
 	
 	//constructor overload
-	public VideoGames(String name, String genre, String system, int playerCount, String releaseDate)
+	public VideoGames(String name, String genre, String system, int playerCount, String releaseDate, ArrayList<Developers> developerInfo)
 	{
 		super(name, genre, system, playerCount);
 		this.releaseDate = releaseDate;
+		this.developerInfo = developerInfo;
 	}
 
 	//getter and setter methods
@@ -20,6 +27,14 @@ public class VideoGames extends Games
 		this.releaseDate = releaseDate;
 	}
 	
+	public ArrayList<Developers> getDeveloperInfo() {
+		return developerInfo;
+	}
+
+	public void setDeveloperInfo(ArrayList<Developers> developerInfo) {
+		this.developerInfo = developerInfo;
+	}
+
 	//to string method to display all information within class
 	public String toString()
 	{

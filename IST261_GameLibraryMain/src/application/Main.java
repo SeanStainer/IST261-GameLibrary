@@ -30,7 +30,7 @@ public class Main extends Application
 		try 
 		{
 			//test the output
-			VideoGames game1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "May 18, 2015");
+			VideoGames game1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "May 18, 2015", null);
 			System.out.println(game1.toString());
 			
 		} 
