@@ -4,9 +4,9 @@ package Model;
 public class Developers
 {
 	//stores information on the developers of the game
-	private String jobTitle;
-	private String firstName;
-	private String lastName;
+	public String jobTitle;
+	public String firstName;
+	public String lastName;
 
 	
 	//default constructor
@@ -54,8 +54,14 @@ public class Developers
 	}
 
 	
-	
-		
+	//to string method to display all information within class
+	@Override
+	public String toString()
+	{
+		return "\n\tJob Title: " + this.getJobTitle() 
+			 + "\n\tFirst Name: " + this.getFirstName() 
+			 + "\n\tLast Name: " + this.getLastName() + "\n";
+	}	
 		
 }
 	

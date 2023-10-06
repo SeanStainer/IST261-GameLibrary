@@ -7,4 +7,10 @@ public class CardGames extends Games
 	{
 		super(name, genre, system, playerCount);
 	}
+	
+	//to string method to display all information within class
+	public String toString()
+	{
+		return super.toString();
+	}
 }
