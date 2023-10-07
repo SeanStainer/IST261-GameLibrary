@@ -1,6 +1,8 @@
 module IST261_GameLibraryMain 
 {
 	requires javafx.controls;
+	requires java.desktop;
+	requires javafx.graphics;
 	
 	opens application to javafx.graphics, javafx.fxml;
 	opens Tests to javafx.graphics, javafx.fxml;
