@@ -68,7 +68,7 @@ public abstract class Testing extends Application
 		System.out.println(bg1.toString());
 		
 		
-		//Spacing
+		//Spacing for Card Game
 		System.out.println("\n***** Card Game *****\n");
 		
 		/*		Card Game 
