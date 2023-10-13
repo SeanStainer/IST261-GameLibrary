@@ -41,6 +41,7 @@ public abstract class Testing extends Application
 		
 		//create developers array list to add
 		ArrayList<Developers> vg1DeveloperInfo = new ArrayList<>();
+		//test mutliple inputs of developers
 		vg1DeveloperInfo.add(new Developers("Programmer", "CD Project", "Red"));
 		vg1DeveloperInfo.add(new Developers("Artist", "Mark", "Madej"));
 		vg1DeveloperInfo.add(new Developers("Sound Designer", "Marcin", "Przybyłowicz"));
@@ -60,6 +61,7 @@ public abstract class Testing extends Application
 		
 		//create developers array list to add
 		ArrayList<Developers> bg1DeveloperInfo = new ArrayList<>();
+		//test single input of developers array
 		bg1DeveloperInfo.add(new Developers("Creator", "Lizzie", "Magie"));
 								
 		BoardGames bg1 = new BoardGames("Monopoly", "Classic Board Game", "In-Person, Mobile, PC, Xbox, Playstation", 8, "February 6th, 1935", bg1DeveloperInfo);
