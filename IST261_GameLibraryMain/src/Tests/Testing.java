@@ -46,11 +46,25 @@ public abstract class Testing extends Application
 		vg1DeveloperInfo.add(new Developers("Artist", "Mark", "Madej"));
 		vg1DeveloperInfo.add(new Developers("Sound Designer", "Marcin", "Przybyłowicz"));
 		
-		VideoGames vg1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "May 18, 2015", true, vg1DeveloperInfo);
+		VideoGames vg1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "2018-05-18", true, vg1DeveloperInfo);
+		VideoGames vg2 = new VideoGames("Portal", "Puzzle", "PC", 1, "2007-10-10", true, null);
 		System.out.println(vg1.toString());
 		
-		//Spacing for Board Game
-		System.out.println("\n***** Board Game *****\n");
+		/*
+		 * Test the interface that compares the release date year for video games
+		 * */
+		
+		System.out.println("\n ----- Video Game Release Date ----- \n");
+		
+		if(vg1.compareReleaseDates(vg2) == true)
+		{
+			System.out.println(vg1.getName() + " was released before " + vg2.getName());
+		}
+		else
+		{
+			System.out.println(vg2.getName() + " was released before " + vg1.getName());
+		}
+		
 		
 		
 		/*		Board Game 
@@ -58,14 +72,34 @@ public abstract class Testing extends Application
 		 *  Name  | Genre  | System | Player Count | Release Date | Developers Array List 
 		 * String | String | String |   Integer    |    String    |    Developers (null)
 		 */
+		//Spacing for Board Game
+		System.out.println("\n***** Board Game *****\n");
 		
 		//create developers array list to add
 		ArrayList<Developers> bg1DeveloperInfo = new ArrayList<>();
+		ArrayList<Developers> bg2DeveloperInfo = new ArrayList<>();
 		//test single input of developers array
 		bg1DeveloperInfo.add(new Developers("Creator", "Lizzie", "Magie"));
+		bg2DeveloperInfo.add(new Developers("Creator", "William", "Storey"));
 								
-		BoardGames bg1 = new BoardGames("Monopoly", "Classic Board Game", "In-Person, Mobile, PC, Xbox, Playstation", 8, "February 6th, 1935", bg1DeveloperInfo);
+		BoardGames bg1 = new BoardGames("Monopoly", "Classic Board Game", "In-Person, Mobile, PC, Xbox, Playstation", 8, "1935-02-06", bg1DeveloperInfo);
+		BoardGames bg2 = new BoardGames("Sorry", "Classic Board Game", "In-Person, Mobile, PC, Xbox, Playstation", 4, "1930-08-04", bg2DeveloperInfo);
 		System.out.println(bg1.toString());
+		
+		/*
+		 * Test the interface that compares the release date year for board games
+		 * */
+		
+		System.out.println("\n ----- Board Game Release Date ----- \n");
+		
+		if(bg1.compareReleaseDates(bg2) == true)
+		{
+			System.out.println(bg1.getName() + " was released before " + bg2.getName());
+		}
+		else
+		{
+			System.out.println(bg2.getName() + " was released before " + bg1.getName());
+		}
 		
 		
 		//Spacing for Card Game
@@ -76,8 +110,9 @@ public abstract class Testing extends Application
 		 *  Name  | Genre  | System | Player Count | 
 		 * String | String | String |   Integer    |
 		 */
-		CardGames cg1 = new CardGames("Texas Holdem", "Poker Style", "In-Person, PC, Xbox, Playstation", 10);
+		CardGames cg1 = new CardGames("Texas Holdem", "Poker Style", "In-Person, PC, Xbox, Playstation", 10, false);
 		System.out.println(cg1.toString());
+		
 		
 	}
 	

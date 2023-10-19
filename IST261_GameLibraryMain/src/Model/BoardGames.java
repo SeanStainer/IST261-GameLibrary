@@ -3,12 +3,14 @@ package Model;
 import java.util.ArrayList;
 
 //class for BoardGames
-public class BoardGames extends Games 
+public class BoardGames extends Games implements comparable
 {
 	//stores release date for game
 	private String releaseDate;
 	//stores developer information
 	private ArrayList<Developers> developerInfo;
+	//stores just the year from release date
+	String year = "";
 	
 	//constructor overload
 	public BoardGames(String name, String genre, String system, int playerCount, String releaseDate,  ArrayList<Developers> developerInfo)
@@ -46,5 +48,35 @@ public class BoardGames extends Games
 								+ "\nDevleoper Info: \n" + developerInfo;
 	}
 
+	
+	public int releaseDateYear(String releaseDate) 
+	{
+		
+		for(int i = 0; i < releaseDate.length(); i++)
+		{
+			if(releaseDate.charAt(i) != '-')
+			{
+				year += releaseDate.charAt(i);
+			}
+		}
+		
+		return Integer.parseInt(year);
+	}
+	
+	public boolean compareReleaseDates(Object game) {
+		
+		BoardGames obj = (BoardGames) game;
+		
+		if(this.releaseDateYear(this.releaseDate) > obj.releaseDateYear(obj.releaseDate))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	
 
 }
