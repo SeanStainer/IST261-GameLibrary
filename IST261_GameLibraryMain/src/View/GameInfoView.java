@@ -109,7 +109,7 @@ public class GameInfoView
 		 * 
 		 * */
 		Label gameSystemLabel = new Label("Systems: ");
-		GridPane.setConstraints(gameSystemLabel, 0, 2);
+		GridPane.setConstraints(gameSystemLabel, 1, 2);
 		
 		//Create CheckBoxes
 		CheckBox sysBox1 = new CheckBox("PC");
@@ -122,7 +122,7 @@ public class GameInfoView
 		VBox systemCheckVbox = new VBox(10);
 		systemCheckVbox.setPadding(new Insets(10, 10, 10, 10));
 		systemCheckVbox.getChildren().addAll(sysBox1, sysBox2, sysBox3, sysBox4, sysBox5);
-		GridPane.setConstraints(systemCheckVbox, 1, 2);
+		GridPane.setConstraints(systemCheckVbox, 1, 3);
 	
 		//add label and text field to layout
 		grid.getChildren().addAll(gameNameLabel, gameName, gameSystemLabel, systemCheckVbox, playerCountLabel, playerCount);
