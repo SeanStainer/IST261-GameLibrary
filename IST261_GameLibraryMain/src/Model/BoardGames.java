@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 //class for BoardGames
-public class BoardGames extends Games implements comparable
+public class BoardGames extends Game implements comparable
 {
 	//stores release date for game
 	private String releaseDate;

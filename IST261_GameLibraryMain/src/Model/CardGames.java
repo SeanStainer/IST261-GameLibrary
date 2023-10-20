@@ -1,6 +1,6 @@
 package Model;
 
-public class CardGames extends Games
+public class CardGames extends Game
 {
 	//boolean value that stores if jokers are used in the game or not
 	private boolean joker;

@@ -1,6 +1,6 @@
 package Model;
 
-public class Games
+public class Game
 {
 	//stores name of game
 	protected String name;
@@ -12,7 +12,7 @@ public class Games
 	protected int playerCount;
 	
 	//constructor overload
-	public Games(String name, String genre, String system, int playerCount)
+	public Game(String name, String genre, String system, int playerCount)
 	{
 		//initialize variables based on parameters passed
 		this.name = name;

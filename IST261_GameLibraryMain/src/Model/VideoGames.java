@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
-public class VideoGames extends Games implements comparable
+public class VideoGames extends Game implements comparable
 {
 	//stores release date for game YYYY-MM-DD
 	private String releaseDate;

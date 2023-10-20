@@ -6,7 +6,7 @@ import Model.BoardGames;
 import Model.CardGames;
 import Model.VideoGames;
 import Model.Developers;
-import Model.Games;
+import Model.Game;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
