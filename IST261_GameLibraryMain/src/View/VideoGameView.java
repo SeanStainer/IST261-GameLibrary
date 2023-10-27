@@ -22,7 +22,7 @@ import View.ButtonBar;
 public class VideoGameView 
 {
 	
-	public static void VideoGameInfo() 
+	public static Stage VideoGameInfo() 
 	{
 		//Create a stage 
 		Stage primaryStage = new Stage();
@@ -121,6 +121,7 @@ public class VideoGameView
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
+		return primaryStage;
 		
 	
 	}
