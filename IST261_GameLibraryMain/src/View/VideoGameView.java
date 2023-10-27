@@ -101,9 +101,18 @@ public class VideoGameView
 		
 		videoGameGrid.getChildren().addAll(releaseDateLabel, releaseDate, GOTYLabel, yesOrNo);
 		
+		/*
+		 * Create a VBox that stores the gridPane of user inputs 
+		 * and the developer input information
+		 * 
+		 * */
+		
+		VBox gridPanels = new VBox();
+		gridPanels.getChildren().addAll(videoGameGrid, DevelopersView.DeveloperInfo());
+		
 		
 		HBox hbox = new HBox();
-		hbox.getChildren().addAll(videoGameGrid, GameInfoView.systemsInfo(), genreVBox);
+		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 		
 		/*
 		 * Creates a VBox that stores the hbox for user input
