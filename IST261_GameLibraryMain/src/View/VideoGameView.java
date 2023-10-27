@@ -12,11 +12,15 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import Model.VideoGames;
 import View.ButtonBar;
 
 public class VideoGameView 
@@ -115,18 +119,70 @@ public class VideoGameView
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 		
 		/*
+		 * Create a TableView that shows 
+		 * all information added into the VideoGames class
+		 * 
+		 * */
+		TableView<VideoGames> table = new TableView<>();
+		
+		//add columns to table
+		
+		//add first column for name of game
+		//<reference data class, and have a column of strings> - create name of column anything can be there
+		TableColumn<VideoGames, String> gameTitleColumn = new TableColumn<>("Name");
+		gameTitleColumn.setMinWidth(150);
+		//name is coming from data, referencing a variable name in the data class (must be same name)
+		gameTitleColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		
+		//add second column for genre
+		// <reference class, data type>
+		TableColumn<VideoGames, String> genreColumn = new TableColumn<>("Genre");
+		genreColumn.setMinWidth(75);
+		genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
+		
+		//add third column for system you can play on
+		// <reference class, data type>
+		TableColumn<VideoGames, Integer> systemColumn = new TableColumn<>("System");
+		systemColumn.setMinWidth(75);
+		systemColumn.setCellValueFactory(new PropertyValueFactory<>("system"));
+		
+		//add fourth column for max number of players in the game
+		// <reference class, data type>
+		TableColumn<VideoGames, Integer> playerCountColumn = new TableColumn<>("# Players");
+		playerCountColumn.setMinWidth(50);
+		playerCountColumn.setCellValueFactory(new PropertyValueFactory<>("playerCount"));
+		
+		//add fifth column for release date
+		// <reference class, data type>
+		TableColumn<VideoGames, Integer> releaseDateColumn = new TableColumn<>("Release Date");
+		releaseDateColumn.setMinWidth(100);
+		releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
+				
+		//add sixth column for if the game won game of the year
+		// <reference class, data type>
+		TableColumn<VideoGames, Integer> gotyColumn = new TableColumn<>("GOTY");
+		gotyColumn.setMinWidth(50);
+		gotyColumn.setCellValueFactory(new PropertyValueFactory<>("gameOfTheYear"));
+		
+		//set data inside of table by calling the controller (from MVC)
+		table.setItems(null);
+		
+		//add columns to table
+		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, gotyColumn);
+		
+		/*
 		 * Creates a VBox that stores the hbox for user input
 		 * and a button bar for adding the information to the library
 		 * or clearing the current choices
 		 * 
 		 * */
-		
 		VBox mainScreen = new VBox();
 		mainScreen.getChildren().add(hbox);
 		mainScreen.getChildren().add(ButtonBar.buttonBar());
+		mainScreen.getChildren().add(table);
 		
 		//create a scene to display and add the main screen vbox
-		Scene scene = new Scene(mainScreen,600,600);
+		Scene scene = new Scene(mainScreen,600,800);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
