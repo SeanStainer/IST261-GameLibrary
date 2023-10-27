@@ -1,6 +1,9 @@
 package Tests;
 	
 import View.GameInfoView;
+import View.HomeView;
+import View.VideoGameView;
+import View.ButtonBar;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,12 +27,14 @@ public class ViewTesting extends Application
 		try 
 		{
 			/*
-			 * Calls the GameInfoView that presents a Grid Layout
-			 * For all the information inside the Games Super Class
+			 * Calls the VideoGameView that presents a Layout
+			 * For all the information inside the Video Games Class
 			 * 
 			 * */
 			
-			GameInfoView.GameInfo();
+			//VideoGameView.VideoGameInfo();
+			
+			HomeView.HomeMenuView();
 			
 		} 
 		catch(Exception e) 
