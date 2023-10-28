@@ -1,20 +1,14 @@
 package application;
-	
+
 import Model.BoardGames;
 import Model.CardGames;
 import Model.VideoGames;
 import Model.Developers;
-import Model.Game;
+import View.HomeView;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
+
+
 
 public class Main extends Application 
 {
@@ -29,9 +23,22 @@ public class Main extends Application
 	{
 		try 
 		{
-			//test the output
-			//VideoGames game1 = new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "May 18, 2015", true, null);
-			//System.out.println(game1.toString());
+			/*
+			 * Calls the VideoGameView that presents a Layout
+			 * For all the information inside the Video Games Class
+			 * 
+			 * */
+			
+			//VideoGameView.VideoGameInfo();
+			
+			/*
+			 * Calls the HomeMenuView that presents a main screen
+			 * that contains a menu to choose which layout you want
+			 * to add information into
+			 * 
+			 * */
+			
+			HomeView.HomeMenuView();
 			
 		} 
 		catch(Exception e) 
