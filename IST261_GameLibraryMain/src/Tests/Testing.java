@@ -8,15 +8,7 @@ import Model.VideoGames;
 import Model.Developers;
 import Model.Game;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
+
 
 public abstract class Testing extends Application 
 {
@@ -56,7 +48,7 @@ public abstract class Testing extends Application
 		
 		System.out.println("\n ----- Video Game Release Date ----- \n");
 		
-		if(vg1.compareReleaseDates(vg2) == true)
+		if(vg1.compareReleaseDates(vg2))
 		{
 			System.out.println(vg1.getName() + " was released before " + vg2.getName());
 		}
@@ -92,7 +84,7 @@ public abstract class Testing extends Application
 		
 		System.out.println("\n ----- Board Game Release Date ----- \n");
 		
-		if(bg1.compareReleaseDates(bg2) == true)
+		if(bg1.compareReleaseDates(bg2))
 		{
 			System.out.println(bg1.getName() + " was released before " + bg2.getName());
 		}
