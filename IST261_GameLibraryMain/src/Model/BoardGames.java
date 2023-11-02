@@ -51,15 +51,20 @@ public class BoardGames extends Game implements comparable
 	
 	public int releaseDateYear(String releaseDate) 
 	{
-		
-		for(int i = 0; i < releaseDate.length(); i++)
+
+		int counter = 0;
+
+		if(releaseDate == "")
 		{
-			if(releaseDate.charAt(i) != '-')
-			{
-				year += releaseDate.charAt(i);
+			return 0;
+		}
+		else {
+			while (releaseDate.charAt(counter) != '-') {
+				year += releaseDate.charAt(counter);
+				counter++;
 			}
 		}
-		
+
 		return Integer.parseInt(year);
 	}
 	

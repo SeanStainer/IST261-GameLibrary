@@ -53,15 +53,19 @@ public class Developers
 		this.lastName = lastName;
 	}
 
-	
+	//method that returns the full name of
+	public String fullName()
+	{
+		return this.lastName + ", " + this.firstName;
+	}
+
 	//to string method to display all information within class
 	@Override
 	public String toString()
 	{
-		return "\n\tJob Title: " + this.getJobTitle() 
-			 + "\n\tFirst Name: " + this.getFirstName() 
-			 + "\n\tLast Name: " + this.getLastName() + "\n";
+		return "\n\tJob Title: " + this.getJobTitle() + "\n\tName: " + fullName() + "\n";
 	}	
-		
+
+
 }
 	
