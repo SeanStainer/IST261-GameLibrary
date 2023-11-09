@@ -31,7 +31,14 @@ public class ViewTesting extends Application
 			 * */
 			
 			//VideoGameView.VideoGameInfo();
-			
+
+			/*
+			 * Calls the HomeMenuView that presents a home screen
+			 * and a menu that allows you to choose between adding
+			 * VideoGameInfo, CardGameInfo, and BoardGameInfo
+			 *
+			 * */
+
 			HomeView.HomeMenuView();
 			
 		} 

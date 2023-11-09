@@ -160,7 +160,7 @@ public class VideoGameView
 				
 		//add sixth column for if the game won game of the year
 		// <reference class, data type>
-		TableColumn<VideoGames, Integer> gotyColumn = new TableColumn<>("GOTY");
+		TableColumn<VideoGames, Boolean> gotyColumn = new TableColumn<>("GOTY");
 		gotyColumn.setMinWidth(50);
 		gotyColumn.setCellValueFactory(new PropertyValueFactory<>("gameOfTheYear"));
 		

@@ -35,9 +35,16 @@ public class HomeView
 			Menu gameMenu = new Menu("Add Game");
 			//create menu items to add into the menu
 			MenuItem videoGameItem = new MenuItem("Video Game");
+			//add button listener to go to video game information view
 			videoGameItem.setOnAction(e -> VideoGameView.VideoGameInfo());
+			//create menu item for card games
 			MenuItem cardGameItem = new MenuItem("Card Game");
+		    //add button listener to go to card game information view
+			cardGameItem.setOnAction(e -> CardGameView.CardGameInfo());
+		    //create menu item for board games
 			MenuItem boardGameItem = new MenuItem("Board Game");
+		    //add button listener to go to board game information view
+		    boardGameItem.setOnAction(e -> BoardGameView.BoardGameInfo());
 
 			
 			//add menuItem to the menu tab
