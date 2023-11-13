@@ -104,13 +104,13 @@ public class CardGameView
         //add second column for genre
         // <reference class, data type>
         TableColumn<CardGames, String> genreColumn = new TableColumn<>("Genre");
-        genreColumn.setMinWidth(75);
+        genreColumn.setMinWidth(100);
         genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
         //add third column for system you can play on
         // <reference class, data type>
         TableColumn<CardGames, Integer> systemColumn = new TableColumn<>("System");
-        systemColumn.setMinWidth(75);
+        systemColumn.setMinWidth(150);
         systemColumn.setCellValueFactory(new PropertyValueFactory<>("system"));
 
         //add fourth column for max number of players in the game
@@ -119,17 +119,12 @@ public class CardGameView
         playerCountColumn.setMinWidth(50);
         playerCountColumn.setCellValueFactory(new PropertyValueFactory<>("playerCount"));
 
-        //add fifth column for joker use
-        // <reference class, data type>
-        TableColumn<CardGames, Boolean> jokerColumn = new TableColumn<>("Joker");
-        jokerColumn.setMinWidth(100);
-        jokerColumn.setCellValueFactory(new PropertyValueFactory<>("joker"));
 
         //set data inside of table by calling the controller (from MVC)
         table.setItems(null);
 
         //add columns to table
-        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, jokerColumn);
+        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn);
 
         /*
          * Creates a VBox that stores the hbox for user input

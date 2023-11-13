@@ -137,13 +137,13 @@ public class VideoGameView
 		//add second column for genre
 		// <reference class, data type>
 		TableColumn<VideoGames, String> genreColumn = new TableColumn<>("Genre");
-		genreColumn.setMinWidth(75);
+		genreColumn.setMinWidth(100);
 		genreColumn.setCellValueFactory(new PropertyValueFactory<>("genre"));
 		
 		//add third column for system you can play on
 		// <reference class, data type>
 		TableColumn<VideoGames, Integer> systemColumn = new TableColumn<>("System");
-		systemColumn.setMinWidth(75);
+		systemColumn.setMinWidth(150);
 		systemColumn.setCellValueFactory(new PropertyValueFactory<>("system"));
 		
 		//add fourth column for max number of players in the game
@@ -152,23 +152,11 @@ public class VideoGameView
 		playerCountColumn.setMinWidth(50);
 		playerCountColumn.setCellValueFactory(new PropertyValueFactory<>("playerCount"));
 		
-		//add fifth column for release date
-		// <reference class, data type>
-		TableColumn<VideoGames, Integer> releaseDateColumn = new TableColumn<>("Release Date");
-		releaseDateColumn.setMinWidth(100);
-		releaseDateColumn.setCellValueFactory(new PropertyValueFactory<>("releaseDate"));
-				
-		//add sixth column for if the game won game of the year
-		// <reference class, data type>
-		TableColumn<VideoGames, Boolean> gotyColumn = new TableColumn<>("GOTY");
-		gotyColumn.setMinWidth(50);
-		gotyColumn.setCellValueFactory(new PropertyValueFactory<>("gameOfTheYear"));
-		
 		//set data inside of table by calling the controller (from MVC)
 		table.setItems(null);
 		
 		//add columns to table
-		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, gotyColumn);
+		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn);
 		
 		/*
 		 * Creates a VBox that stores the hbox for user input
