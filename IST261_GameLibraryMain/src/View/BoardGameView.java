@@ -133,7 +133,7 @@ public class BoardGameView
          * */
         VBox mainScreen = new VBox();
         mainScreen.getChildren().add(hbox);
-        mainScreen.getChildren().add(ButtonBar.buttonBar());
+        mainScreen.getChildren().add(ButtonBar.BGbuttonBar());
         mainScreen.getChildren().add(table);
 
         //create a scene to display and add the main screen vbox

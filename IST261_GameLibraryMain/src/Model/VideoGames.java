@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 
 public class VideoGames extends Game implements comparable
@@ -12,9 +15,13 @@ public class VideoGames extends Game implements comparable
 	private ArrayList<Developers> developerInfo;
 	//stores just the year from release date
 	String year = "";
-	
-	
-	
+
+	private ObservableList<VideoGames> vgInfoList = FXCollections.observableArrayList();
+
+	public ObservableList<VideoGames> getVgInfoList() {
+		return vgInfoList;
+	}
+
 	//constructor overload
 	public VideoGames(String name, String genre, String system, int playerCount, String releaseDate, boolean gameOfTheYear, ArrayList<Developers> developerInfo)
 	{

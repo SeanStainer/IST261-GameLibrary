@@ -4,7 +4,9 @@ import Model.BoardGames;
 import Model.CardGames;
 import Model.VideoGames;
 import Model.Developers;
+import Model.Game;
 import View.HomeView;
+import View.VideoGameView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

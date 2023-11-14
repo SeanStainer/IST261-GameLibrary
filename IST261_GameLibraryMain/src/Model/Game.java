@@ -1,5 +1,10 @@
 package Model;
 
+import View.GameInfoView;
+import View.VideoGameView;
+
+import java.util.ArrayList;
+
 public class Game
 {
 	//stores name of game
@@ -10,6 +15,11 @@ public class Game
 	protected String system;
 	//how many players can play the game
 	protected int playerCount;
+
+	//Create array lists to store data for each class
+	public static ArrayList<VideoGames> videoGameData = new ArrayList<VideoGames>();
+	public static ArrayList<BoardGames> boardGameData = new ArrayList<BoardGames>();
+	public static ArrayList<CardGames> cardGameData = new ArrayList<CardGames>();
 	
 	//constructor overload
 	public Game(String name, String genre, String system, int playerCount)

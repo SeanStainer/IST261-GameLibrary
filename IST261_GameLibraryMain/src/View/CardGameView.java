@@ -134,7 +134,7 @@ public class CardGameView
          * */
         VBox mainScreen = new VBox();
         mainScreen.getChildren().add(hbox);
-        mainScreen.getChildren().add(ButtonBar.buttonBar());
+        mainScreen.getChildren().add(ButtonBar.CGbuttonBar());
         mainScreen.getChildren().add(table);
 
         //create a scene to display and add the main screen vbox

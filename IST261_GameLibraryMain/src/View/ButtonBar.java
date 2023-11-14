@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GameLibraryController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,17 +14,17 @@ import javafx.stage.Stage;
 public class ButtonBar 
 {
 
-	public static HBox buttonBar()
+	public static HBox VGbuttonBar()
 	{
 		//Button
 		Button addBtn = new Button("Add");
-		//addBtn.setOnAction(e -> addItems());
+		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
 		
 		Button clearBtn = new Button("Clear");
-		//delBtn.setOnAction(e -> deleteItems());
+		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
 		
 		Button exitBtn = new Button("Exit"); 
-		exitBtn.setOnAction(e -> closeProgram());
+		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
 		//HBox
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
@@ -32,18 +33,45 @@ public class ButtonBar
 		
 		return bar;
 	}
-	
-	public static void closeProgram() 
+
+	public static HBox BGbuttonBar()
 	{
-		Boolean ans = CloseConfirmation.show("Welcome", "Are you sure you want to close?");
-		
-		//if answer is true close the window
-		if(ans == true)
-		{
-			System.exit(0);
-			System.out.println("Exited interface");
-		}
-		
+		//Button
+		Button addBtn = new Button("Add");
+		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
+
+		Button clearBtn = new Button("Clear");
+		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
+
+		Button exitBtn = new Button("Exit");
+		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
+		//HBox
+		HBox bar = new HBox();
+		bar.setPadding(new Insets(10,10,10,10));
+		bar.setSpacing(10);
+		bar.getChildren().addAll(addBtn, clearBtn, exitBtn);
+
+		return bar;
 	}
-	
+
+	public static HBox CGbuttonBar()
+	{
+		//Button
+		Button addBtn = new Button("Add");
+		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
+
+		Button clearBtn = new Button("Clear");
+		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
+
+		Button exitBtn = new Button("Exit");
+		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
+		//HBox
+		HBox bar = new HBox();
+		bar.setPadding(new Insets(10,10,10,10));
+		bar.setSpacing(10);
+		bar.getChildren().addAll(addBtn, clearBtn, exitBtn);
+
+		return bar;
+	}
+
 }

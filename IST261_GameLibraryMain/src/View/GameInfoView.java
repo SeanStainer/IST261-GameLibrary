@@ -16,10 +16,17 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import Model.Game;
 
 public class GameInfoView 
 {
-	
+	public static TextField gameName;
+	public static TextField playerCount;
+	public static CheckBox sysBox1;
+	public static CheckBox sysBox2;
+	public static CheckBox sysBox3;
+	public static CheckBox sysBox4;
+	public static CheckBox sysBox5;
 	public static GridPane GameInfo() 
 	{
 		//Create a stage 
@@ -54,7 +61,7 @@ public class GameInfoView
 		Label gameNameLabel = new Label("Name of Game: ");
 		GridPane.setConstraints(gameNameLabel, 0, 0);
 
-		TextField gameName = new TextField("Portal");
+		gameName = new TextField("Portal");
 		GridPane.setConstraints(gameName, 1, 0);
 		
 		/*
@@ -64,12 +71,11 @@ public class GameInfoView
 		Label playerCountLabel = new Label("Max Players: ");
 		GridPane.setConstraints(playerCountLabel, 0, 1);
 	
-		TextField playerCount = new TextField("2");
+		playerCount = new TextField("2");
 		GridPane.setConstraints(playerCount, 1, 1);
 	
 		//add label and text field to layout
 		grid.getChildren().addAll(gameNameLabel, gameName, playerCountLabel, playerCount);
-			
 		
 		return grid;
 	
@@ -86,11 +92,11 @@ public class GameInfoView
 		Label gameSystemLabel = new Label("Systems: ");
 		
 		//Create CheckBoxes
-		CheckBox sysBox1 = new CheckBox("PC");
-		CheckBox sysBox2 = new CheckBox("Xbox");
-		CheckBox sysBox3 = new CheckBox("Playstation");
-		CheckBox sysBox4 = new CheckBox("Nintendo");
-		CheckBox sysBox5 = new CheckBox("In-Person");
+		sysBox1 = new CheckBox("PC");
+		sysBox2 = new CheckBox("Xbox");
+		sysBox3 = new CheckBox("Playstation");
+		sysBox4 = new CheckBox("Nintendo");
+		sysBox5 = new CheckBox("In-Person");
 		
 		//create a vbox layout 
 		VBox systemCheckVbox = new VBox(10);
@@ -100,11 +106,34 @@ public class GameInfoView
 		return systemCheckVbox;
 	}
 	
-	public static GridPane developersInfo()
+	public static String systemData()
 	{
-		return null;
-		
+		String systems = "";
+
+		if(sysBox1.isSelected())
+		{
+			systems += "PC, ";
+		}
+		if(sysBox2.isSelected())
+		{
+			systems += "Xbox, ";
+		}
+		if(sysBox3.isSelected())
+		{
+			systems += "Playstation, ";
+		}
+		if(sysBox4.isSelected())
+		{
+			systems += "Nintendo, ";
+		}
+		if(sysBox5.isSelected())
+		{
+			systems += "In-Person, ";
+		}
+
+		return systems;
 	}
+
 	
 	
 }
