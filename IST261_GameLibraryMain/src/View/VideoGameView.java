@@ -19,6 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import Model.VideoGames;
 
+import java.util.ArrayList;
+
 public class VideoGameView 
 {
 	public static TableView<VideoGames> table;
@@ -182,7 +184,7 @@ public class VideoGameView
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 
 
-		table.setItems(null);
+		table.setItems(getData());
 		//add columns to table
 		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, GOTYColumn, developerColumn);
 
@@ -210,8 +212,11 @@ public class VideoGameView
 	private static ObservableList<VideoGames> getData()
 	{
 		ObservableList<VideoGames> data = FXCollections.observableArrayList();
+		ArrayList<Developers> vg1DeveloperInfo = new ArrayList<>();
+		//test mutliple inputs of developers
+		vg1DeveloperInfo.add(new Developers("Programmer", "CD Project", "Red"));
 
-		data.add(new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "2018-05-18", true, null));
+		data.add(new VideoGames("Witcher 3", "Open World, RPG, etc.", "Playstation, Xbox, PC", 1, "2018-05-18", true, vg1DeveloperInfo));
 		return data;
 	}
 
