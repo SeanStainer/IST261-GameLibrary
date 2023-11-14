@@ -11,4 +11,6 @@ module IST261_GameLibraryMain
 	opens View to javafx.graphics, javafx.fxml;
 	opens Model to javafx.graphics, javafx.fxml;
 	opens Controller to javafx.graphics, javafx.fxml;
+	exports Model;
+	exports View;
 }
