@@ -182,7 +182,7 @@ public class VideoGameView
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 
 
-		table.setItems(getData());
+		table.setItems(null);
 		//add columns to table
 		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, GOTYColumn, developerColumn);
 
