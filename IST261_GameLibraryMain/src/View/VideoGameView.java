@@ -58,7 +58,7 @@ public class VideoGameView
 		//add first column for name of game
 		//<reference data class, and have a column of strings> - create name of column anything can be there
 		TableColumn<VideoGames, String> gameTitleColumn = new TableColumn<>("Name");
-		gameTitleColumn.setMinWidth(150);
+		gameTitleColumn.setMinWidth(75);
 		//name is coming from data, referencing a variable name in the data class (must be same name)
 		gameTitleColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, String>("name"));
 
@@ -71,31 +71,31 @@ public class VideoGameView
 		//add third column for system you can play on
 		// <reference class, data type>
 		TableColumn<VideoGames, String> systemColumn = new TableColumn<>("System");
-		systemColumn.setMinWidth(150);
+		systemColumn.setMinWidth(100);
 		systemColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, String>("system"));
 
 		//add fourth column for max number of players in the game
 		// <reference class, data type>
 		TableColumn<VideoGames, Integer> playerCountColumn = new TableColumn<>("# Players");
-		playerCountColumn.setMinWidth(50);
+		playerCountColumn.setMinWidth(25);
 		playerCountColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, Integer>("playerCount"));
 
 		//add fifth column for release date
 		// <reference class, data type>
 		TableColumn<VideoGames, String> releaseDateColumn = new TableColumn<>("Release Date");
-		releaseDateColumn.setMinWidth(100);
+		releaseDateColumn.setMinWidth(75);
 		releaseDateColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, String>("releaseDate"));
 
 		//add sixth column for GOTY
 		// <reference class, data type>
 		TableColumn<VideoGames, Boolean> GOTYColumn = new TableColumn<>("GOTY");
-		GOTYColumn.setMinWidth(100);
+		GOTYColumn.setMinWidth(50);
 		GOTYColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, Boolean>("gameOfTheYear"));
 
-		//add sixth column for GOTY
+		//add seventh column for developers
 		// <reference class, data type>
 		TableColumn<VideoGames, Developers> developerColumn = new TableColumn<>("Developers");
-		developerColumn.setMinWidth(100);
+		developerColumn.setMinWidth(200);
 		developerColumn.setCellValueFactory(new PropertyValueFactory<VideoGames, Developers>("developerInfo"));
 
 		/*
@@ -183,8 +183,9 @@ public class VideoGameView
 		HBox hbox = new HBox();
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 
-
-		table.setItems(getData());
+		//set an observable list of arrayList data that is saved to start the data in the table
+		ObservableList<VideoGames> vgTable = FXCollections.observableArrayList(Game.videoGameData);
+		table.setItems(vgTable);
 		//add columns to table
 		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, GOTYColumn, developerColumn);
 
@@ -201,7 +202,7 @@ public class VideoGameView
 		mainScreen.getChildren().add(table);
 		
 		//create a scene to display and add the main screen vbox
-		Scene scene = new Scene(mainScreen,600,800);
+		Scene scene = new Scene(mainScreen,700,800);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
@@ -209,6 +210,11 @@ public class VideoGameView
 
 	}
 
+	/*
+	* Test data for the tableView
+	* return an observable list with one set of data
+	*
+	* */
 	private static ObservableList<VideoGames> getData()
 	{
 		ObservableList<VideoGames> data = FXCollections.observableArrayList();
@@ -222,6 +228,10 @@ public class VideoGameView
 
 	public static VideoGames vgData()
 	{
+		Developers d = new Developers(DevelopersView.jobTitle.getText(), DevelopersView.firstName.getText(), DevelopersView.lastName.getText());
+		ArrayList<Developers> dInfo = new ArrayList<>();
+		dInfo.add(d);
+
 		VideoGames vg = new VideoGames(
 						GameInfoView.gameName.getText(),
 						genreData(),
@@ -229,7 +239,7 @@ public class VideoGameView
 						Integer.parseInt(GameInfoView.playerCount.getText()),
 						releaseDate.getText(),
 						GOTYData(),
-						null );
+						dInfo );
 
 		return vg;
 	}
@@ -251,53 +261,33 @@ public class VideoGameView
 		String genres = "";
 
 		if(box1.isSelected())
-		{
 			genres += "Action, ";
-		}
 		if(box2.isSelected())
-		{
 			genres += "Adventure, ";
-		}
 		if(box3.isSelected())
-		{
 			genres += "Fighting, ";
-		}
 		if(box4.isSelected())
-		{
 			genres += "Open World, ";
-		}
 		if(box5.isSelected())
-		{
 			genres += "Poker, ";
-		}
 		if(box6.isSelected())
-		{
 			genres += "Puzzle, ";
-		}
 		if(box7.isSelected())
-		{
 			genres += "Racing, ";
-		}
 		if(box8.isSelected())
-		{
 			genres += "RPG, ";
-		}
 		if(box9.isSelected())
-		{
 			genres += "Shooter, ";
-		}
 		if(box10.isSelected())
-		{
 			genres += "Sports, ";
-		}
 		if(box11.isSelected())
-		{
 			genres += "Survival, ";
-		}
 		if(box12.isSelected())
-		{
-			genres += "Casual";
-		}
+			genres += "Casual, ";
+
+		//remove the ', ' from the end of the string
+		genres = genres.substring(0, genres.length() - 2);
+
 		return genres;
 	}
 	

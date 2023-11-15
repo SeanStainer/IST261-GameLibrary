@@ -7,7 +7,9 @@ import javafx.scene.layout.*;
 
 public class DevelopersView 
 {
-	
+	public static TextField jobTitle;
+	public static TextField firstName;
+	public static TextField lastName;
 	public static VBox DeveloperInfo()
 	{	
 		
@@ -21,7 +23,7 @@ public class DevelopersView
 		HBox developerJobTitle = new HBox();
 		
 		Label jobTitleLabel = new Label("Job Title:  ");
-		TextField jobTitle = new TextField("Programmer");
+		jobTitle = new TextField("Programmer");
 		
 		/*
 		 * Add items to HBox 
@@ -39,7 +41,7 @@ public class DevelopersView
 		HBox developerFirstName = new HBox();
 		
 		Label firstNameLabel = new Label("First Name: ");
-		TextField firstName = new TextField("John");
+		firstName = new TextField("John");
 		
 		/*
 		 * Add items to HBox 
@@ -59,7 +61,7 @@ public class DevelopersView
 		HBox developerlastName = new HBox();
 		
 		Label lastNameLabel = new Label("Last Name: ");
-		TextField lastName = new TextField("Smith");
+		lastName = new TextField("Smith");
 		
 		/*
 		 * Add items to HBox 

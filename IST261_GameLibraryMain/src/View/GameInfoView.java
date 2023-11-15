@@ -131,6 +131,9 @@ public class GameInfoView
 			systems += "In-Person, ";
 		}
 
+		//remove the ', ' from the end of the string
+		systems = systems.substring(0, systems.length() - 2);
+
 		return systems;
 	}
 

@@ -3,9 +3,10 @@ package Model;
 import View.GameInfoView;
 import View.VideoGameView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Game
+public class Game implements Serializable
 {
 	//stores name of game
 	protected String name;

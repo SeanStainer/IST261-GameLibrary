@@ -36,7 +36,7 @@ public class Main extends Application
 		} 
 		catch(Exception e) 
 		{
-			System.out.println("error");
+			e.printStackTrace();
 		}
 	}
 	

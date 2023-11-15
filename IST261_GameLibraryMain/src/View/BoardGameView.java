@@ -1,6 +1,11 @@
 package View;
 
 import Model.BoardGames;
+import Model.Developers;
+import Model.Game;
+import Model.VideoGames;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,8 +15,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class BoardGameView
 {
+    public static TableView<BoardGames> table;
+    public static TextField releaseDate;
+    public static CheckBox box1;
+    public static CheckBox box2;
+    public static CheckBox box3;
+    public static CheckBox box4;
+    public static CheckBox box5;
+    public static CheckBox box6;
+    public static CheckBox box7;
+    public static CheckBox box8;
     public static Stage BoardGameInfo()
     {
         //Create a stage
@@ -32,14 +49,14 @@ public class BoardGameView
         Label gameGenreLabel = new Label("Genre: ");
 
         //Create CheckBoxes
-        CheckBox box1 = new CheckBox("Abstract");
-        CheckBox box2 = new CheckBox("Area Control");
-        CheckBox box3 = new CheckBox("Campaign");
-        CheckBox box4 = new CheckBox("Deck building");
-        CheckBox box5 = new CheckBox("Dice");
-        CheckBox box6 = new CheckBox("Dungeon-Crawler");
-        CheckBox box7 = new CheckBox("RPG");
-        CheckBox box8 = new CheckBox("War");
+        box1 = new CheckBox("Abstract");
+        box2 = new CheckBox("Area Control");
+        box3 = new CheckBox("Campaign");
+        box4 = new CheckBox("Deck building");
+        box5 = new CheckBox("Dice");
+        box6 = new CheckBox("Dungeon-Crawler");
+        box7 = new CheckBox("RPG");
+        box8 = new CheckBox("War");
 
         //create a vbox layout w/ padding 10 between children and 30 all around vbox
         VBox genreCheckVbox = new VBox(10);
@@ -67,7 +84,7 @@ public class BoardGameView
         Label releaseDateLabel = new Label("Release Date: ");
         GridPane.setConstraints(releaseDateLabel, 0, 2);
 
-        TextField releaseDate = new TextField("YYYY-MM-DD");
+        releaseDate = new TextField("YYYY-MM-DD");
         GridPane.setConstraints(releaseDate, 1, 2);
 
         BoardGameGrid.getChildren().addAll(releaseDateLabel, releaseDate);
@@ -90,14 +107,14 @@ public class BoardGameView
          * all information added into the Board Games class
          *
          * */
-        TableView<BoardGames> table = new TableView<>();
+        table = new TableView<>();
 
         //add columns to table
 
         //add first column for name of game
         //<reference data class, and have a column of strings> - create name of column anything can be there
         TableColumn<BoardGames, String> gameTitleColumn = new TableColumn<>("Name");
-        gameTitleColumn.setMinWidth(150);
+        gameTitleColumn.setMinWidth(75);
         //name is coming from data, referencing a variable name in the data class (must be same name)
         gameTitleColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
@@ -110,20 +127,34 @@ public class BoardGameView
         //add third column for system you can play on
         // <reference class, data type>
         TableColumn<BoardGames, Integer> systemColumn = new TableColumn<>("System");
-        systemColumn.setMinWidth(150);
+        systemColumn.setMinWidth(100);
         systemColumn.setCellValueFactory(new PropertyValueFactory<>("system"));
 
         //add fourth column for max number of players in the game
         // <reference class, data type>
         TableColumn<BoardGames, Integer> playerCountColumn = new TableColumn<>("# Players");
-        playerCountColumn.setMinWidth(50);
+        playerCountColumn.setMinWidth(25);
         playerCountColumn.setCellValueFactory(new PropertyValueFactory<>("playerCount"));
 
-        //set data inside of table by calling the controller (from MVC)
-        table.setItems(null);
+        //add fifth column for release date
+        // <reference class, data type>
+        TableColumn<BoardGames, String> releaseDateColumn = new TableColumn<>("Release Date");
+        releaseDateColumn.setMinWidth(100);
+        releaseDateColumn.setCellValueFactory(new PropertyValueFactory<BoardGames, String>("releaseDate"));
+
+        //add sixth column for developers
+        // <reference class, data type>
+        TableColumn<BoardGames, Developers> developerColumn = new TableColumn<>("Developers");
+        developerColumn.setMinWidth(200);
+        developerColumn.setCellValueFactory(new PropertyValueFactory<BoardGames, Developers>("developerInfo"));
+
+
+        //set an observable list of arrayList data that is saved to start the data in the table
+        ObservableList<BoardGames> bgTable = FXCollections.observableArrayList(Game.boardGameData);
+        table.setItems(bgTable);
 
         //add columns to table
-        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn);
+        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, developerColumn);
 
         /*
          * Creates a VBox that stores the hbox for user input
@@ -145,4 +176,49 @@ public class BoardGameView
 
 
     }
+
+    public static String bgGenreData()
+    {
+        String genres = "";
+
+        if(box1.isSelected())
+            genres += "Abstract, ";
+        if(box2.isSelected())
+            genres += "Area Control, ";
+        if(box3.isSelected())
+            genres += "Campaign, ";
+        if(box4.isSelected())
+            genres += "Deck building, ";
+        if(box5.isSelected())
+            genres += "Dice, ";
+        if(box6.isSelected())
+            genres += "Dungeon-Crawler, ";
+        if(box7.isSelected())
+            genres += "RPG, ";
+        if(box8.isSelected())
+            genres += "War, ";
+
+        //remove the ', ' from the end of the string
+        genres = genres.substring(0, genres.length() - 2);
+
+        return genres;
+    }
+    public static BoardGames bgData()
+    {
+        Developers d = new Developers(DevelopersView.jobTitle.getText(), DevelopersView.firstName.getText(), DevelopersView.lastName.getText());
+        ArrayList<Developers> dInfo = new ArrayList<>();
+        dInfo.add(d);
+
+        BoardGames bg = new BoardGames(
+                GameInfoView.gameName.getText(),
+                bgGenreData(),
+                GameInfoView.systemData(),
+                Integer.parseInt(GameInfoView.playerCount.getText()),
+                releaseDate.getText(),
+                dInfo );
+
+        return bg;
+    }
+
+
 }

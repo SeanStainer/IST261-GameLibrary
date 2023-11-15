@@ -38,7 +38,7 @@ public class ButtonBar
 	{
 		//Button
 		Button addBtn = new Button("Add");
-		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
+		addBtn.setOnAction(e -> GameLibraryController.addBGItems());
 
 		Button clearBtn = new Button("Clear");
 		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
@@ -58,7 +58,7 @@ public class ButtonBar
 	{
 		//Button
 		Button addBtn = new Button("Add");
-		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
+		addBtn.setOnAction(e -> GameLibraryController.addCGItems());
 
 		Button clearBtn = new Button("Clear");
 		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());

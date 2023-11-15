@@ -1,7 +1,9 @@
 package Model;
 
+import java.io.Serializable;
+
 //super class
-public class Developers
+public class Developers implements Serializable
 {
 	//stores information on the developers of the game
 	public String jobTitle;

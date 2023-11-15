@@ -1,6 +1,11 @@
 package View;
 
 import Model.CardGames;
+import Model.Developers;
+import Model.Game;
+import Model.VideoGames;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,8 +15,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class CardGameView
 {
+    public static TableView<CardGames> table;
+    public static RadioButton yesButton;
+    public static RadioButton noButton;
+    public static CheckBox box1;
+    public static CheckBox box2;
+    public static CheckBox box3;
+    public static CheckBox box4;
     public static Stage CardGameInfo()
     {
         //Create a stage
@@ -33,10 +47,10 @@ public class CardGameView
         Label gameGenreLabel = new Label("Genre: ");
 
         //Create CheckBoxes
-        CheckBox box1 = new CheckBox("Collectible");
-        CheckBox box2 = new CheckBox("Classic");
-        CheckBox box3 = new CheckBox("Poker");
-        CheckBox box4 = new CheckBox("Party");
+        box1 = new CheckBox("Collectible");
+        box2 = new CheckBox("Classic");
+        box3 = new CheckBox("Poker");
+        box4 = new CheckBox("Party");
 
         //create a vbox layout w/ padding 10 between children and 30 all around vbox
         VBox genreCheckVbox = new VBox(10);
@@ -62,8 +76,8 @@ public class CardGameView
         Label jokerLabel = new Label("Game uses Joker: ");
         GridPane.setConstraints(jokerLabel, 0, 2);
 
-        RadioButton yesButton = new RadioButton("Yes");
-        RadioButton noButton = new RadioButton("No");
+        yesButton = new RadioButton("Yes");
+        noButton = new RadioButton("No");
 
         HBox yesOrNo = new HBox();
         yesOrNo.setSpacing(5);
@@ -90,7 +104,7 @@ public class CardGameView
          * all information added into the VideoGames class
          *
          * */
-        TableView<CardGames> table = new TableView<>();
+        table = new TableView<>();
 
         //add columns to table
 
@@ -119,12 +133,19 @@ public class CardGameView
         playerCountColumn.setMinWidth(50);
         playerCountColumn.setCellValueFactory(new PropertyValueFactory<>("playerCount"));
 
+        //add a fifth column for if the game uses a joker or not
+        // <reference class, data type>
+        TableColumn<CardGames, Boolean> jokerColumn = new TableColumn<>("Joker");
+        jokerColumn.setMinWidth(50);
+        jokerColumn.setCellValueFactory(new PropertyValueFactory<CardGames, Boolean>("joker"));
 
-        //set data inside of table by calling the controller (from MVC)
-        table.setItems(null);
+
+        //set an observable list of arrayList data that is saved to start the data in the table
+        ObservableList<CardGames> cgTable = FXCollections.observableArrayList(Game.cardGameData);
+        table.setItems(cgTable);
 
         //add columns to table
-        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn);
+        table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, jokerColumn);
 
         /*
          * Creates a VBox that stores the hbox for user input
@@ -146,5 +167,44 @@ public class CardGameView
 
 
     }
+    public static Boolean jokerData()
+    {
+        if(yesButton.isSelected())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static CardGames cgData()
+    {
+        CardGames cg = new CardGames(
+                GameInfoView.gameName.getText(),
+                genreData(),
+                GameInfoView.systemData(),
+                Integer.parseInt(GameInfoView.playerCount.getText()),
+                jokerData());
 
+        return cg;
+    }
+    public static String genreData()
+    {
+        String genres = "";
+
+        if(box1.isSelected())
+            genres += "Collectible, ";
+        if(box2.isSelected())
+            genres += "Classic, ";
+        if(box3.isSelected())
+            genres += "Poker, ";
+        if(box4.isSelected())
+            genres += "Party, ";
+
+        //remove the ', ' from the end of the string
+        genres = genres.substring(0, genres.length() - 2);
+
+        return genres;
+    }
 }
