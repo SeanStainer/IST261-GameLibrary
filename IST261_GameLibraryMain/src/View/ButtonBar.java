@@ -24,7 +24,7 @@ public class ButtonBar
 		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
 		
 		Button exitBtn = new Button("Exit"); 
-		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
+		exitBtn.setOnAction(e -> GameLibraryController.closeVGProgram());
 		//HBox
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
@@ -44,7 +44,7 @@ public class ButtonBar
 		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
 
 		Button exitBtn = new Button("Exit");
-		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
+		exitBtn.setOnAction(e -> GameLibraryController.closeBGProgram());
 		//HBox
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
@@ -64,7 +64,7 @@ public class ButtonBar
 		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
 
 		Button exitBtn = new Button("Exit");
-		exitBtn.setOnAction(e -> GameLibraryController.closeProgram());
+		exitBtn.setOnAction(e -> GameLibraryController.closeCGProgram());
 		//HBox
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));

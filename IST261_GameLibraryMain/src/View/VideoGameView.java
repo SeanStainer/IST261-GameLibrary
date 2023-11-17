@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class VideoGameView 
 {
 	public static TableView<VideoGames> table;
+	public static ObservableList<VideoGames> tableData;
 	public static CheckBox box1;
 	public static CheckBox box2;
 	public static CheckBox box3;
@@ -184,8 +185,11 @@ public class VideoGameView
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 
 		//set an observable list of arrayList data that is saved to start the data in the table
-		ObservableList<VideoGames> vgTable = FXCollections.observableArrayList(Game.videoGameData);
-		table.setItems(vgTable);
+		Game.restoreVGData();
+		//System.out.println(Game.videoGameData.toString());
+		//set an observable list of arrayList data that is saved to start the data in the table
+		tableData = FXCollections.observableArrayList(Game.videoGameData);
+		table.setItems(tableData);
 		//add columns to table
 		table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, GOTYColumn, developerColumn);
 

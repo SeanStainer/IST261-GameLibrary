@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class CardGameView
 {
     public static TableView<CardGames> table;
+    public static ObservableList<CardGames> cgTable;
     public static RadioButton yesButton;
     public static RadioButton noButton;
     public static CheckBox box1;
@@ -139,9 +140,10 @@ public class CardGameView
         jokerColumn.setMinWidth(50);
         jokerColumn.setCellValueFactory(new PropertyValueFactory<CardGames, Boolean>("joker"));
 
-
         //set an observable list of arrayList data that is saved to start the data in the table
-        ObservableList<CardGames> cgTable = FXCollections.observableArrayList(Game.cardGameData);
+        Game.restoreCGData();
+        //set an observable list of arrayList data that is saved to start the data in the table
+        cgTable = FXCollections.observableArrayList(Game.cardGameData);
         table.setItems(cgTable);
 
         //add columns to table

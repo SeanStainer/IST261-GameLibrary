@@ -3,9 +3,13 @@ package Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class VideoGames extends Game implements comparable
+public class VideoGames extends Game implements comparable, Serializable
 {
 	//stores release date for game YYYY-MM-DD
 	private String releaseDate;
@@ -14,13 +18,7 @@ public class VideoGames extends Game implements comparable
 	//stores developer information
 	private ArrayList<Developers> developerInfo;
 	//stores just the year from release date
-	String year = "";
-
-	private ObservableList<VideoGames> vgInfoList = FXCollections.observableArrayList();
-
-	public ObservableList<VideoGames> getVgInfoList() {
-		return vgInfoList;
-	}
+	public String year = "";
 
 	//constructor overload
 	public VideoGames(String name, String genre, String system, int playerCount, String releaseDate, boolean gameOfTheYear, ArrayList<Developers> developerInfo)

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 public class BoardGameView
 {
     public static TableView<BoardGames> table;
+    public static ObservableList<BoardGames> tableData;
     public static TextField releaseDate;
     public static CheckBox box1;
     public static CheckBox box2;
@@ -148,10 +149,12 @@ public class BoardGameView
         developerColumn.setMinWidth(200);
         developerColumn.setCellValueFactory(new PropertyValueFactory<BoardGames, Developers>("developerInfo"));
 
-
         //set an observable list of arrayList data that is saved to start the data in the table
-        ObservableList<BoardGames> bgTable = FXCollections.observableArrayList(Game.boardGameData);
-        table.setItems(bgTable);
+        Game.restoreBGData();
+        //System.out.println(Game.videoGameData.toString());
+        //set an observable list of arrayList data that is saved to start the data in the table
+        tableData = FXCollections.observableArrayList(Game.boardGameData);
+        table.setItems(tableData);
 
         //add columns to table
         table.getColumns().addAll(gameTitleColumn, genreColumn, systemColumn, playerCountColumn, releaseDateColumn, developerColumn);

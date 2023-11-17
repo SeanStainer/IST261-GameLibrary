@@ -1,9 +1,10 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //class for BoardGames
-public class BoardGames extends Game implements comparable
+public class BoardGames extends Game implements comparable, Serializable
 {
 	//stores release date for game
 	private String releaseDate;
