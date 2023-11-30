@@ -20,8 +20,8 @@ public class ButtonBar
 		Button addBtn = new Button("Add");
 		addBtn.setOnAction(e -> GameLibraryController.addVGItems());
 		
-		Button clearBtn = new Button("Clear");
-		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
+		Button delBtn = new Button("Delete");
+		delBtn.setOnAction(e -> GameLibraryController.deleteVGItems());
 		
 		Button exitBtn = new Button("Exit"); 
 		exitBtn.setOnAction(e -> GameLibraryController.closeVGProgram());
@@ -29,7 +29,7 @@ public class ButtonBar
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
 		bar.setSpacing(10);
-		bar.getChildren().addAll(addBtn, clearBtn, exitBtn);
+		bar.getChildren().addAll(addBtn, delBtn, exitBtn);
 		
 		return bar;
 	}
@@ -40,8 +40,8 @@ public class ButtonBar
 		Button addBtn = new Button("Add");
 		addBtn.setOnAction(e -> GameLibraryController.addBGItems());
 
-		Button clearBtn = new Button("Clear");
-		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
+		Button delBtn = new Button("Delete");
+		delBtn.setOnAction(e -> GameLibraryController.deleteBGItems());
 
 		Button exitBtn = new Button("Exit");
 		exitBtn.setOnAction(e -> GameLibraryController.closeBGProgram());
@@ -49,7 +49,7 @@ public class ButtonBar
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
 		bar.setSpacing(10);
-		bar.getChildren().addAll(addBtn, clearBtn, exitBtn);
+		bar.getChildren().addAll(addBtn, delBtn, exitBtn);
 
 		return bar;
 	}
@@ -60,8 +60,8 @@ public class ButtonBar
 		Button addBtn = new Button("Add");
 		addBtn.setOnAction(e -> GameLibraryController.addCGItems());
 
-		Button clearBtn = new Button("Clear");
-		//delBtn.setOnAction(e -> GameLibraryController.deleteItems());
+		Button delBtn = new Button("Delete");
+		delBtn.setOnAction(e -> GameLibraryController.deleteCGItems());
 
 		Button exitBtn = new Button("Exit");
 		exitBtn.setOnAction(e -> GameLibraryController.closeCGProgram());
@@ -69,7 +69,7 @@ public class ButtonBar
 		HBox bar = new HBox();
 		bar.setPadding(new Insets(10,10,10,10));
 		bar.setSpacing(10);
-		bar.getChildren().addAll(addBtn, clearBtn, exitBtn);
+		bar.getChildren().addAll(addBtn, delBtn, exitBtn);
 
 		return bar;
 	}

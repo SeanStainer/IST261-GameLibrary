@@ -10,6 +10,8 @@ import View.CloseConfirmation;
 import View.VideoGameView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 
 import static Model.Game.videoGameData;
 
@@ -109,6 +111,49 @@ public class GameLibraryController
 
         //add observable list to table
         CardGameView.table.getItems().addAll(tableData);
+
+    }
+
+    //method that deletes items from table selected by user
+    public static void deleteVGItems()
+    {
+        ObservableList<VideoGames> selected_fields, all_fields;
+
+        all_fields = VideoGameView.table.getItems();
+
+        //sets selected_fields to the user selected items from the table
+        selected_fields = VideoGameView.table.getSelectionModel().getSelectedItems();
+
+        //remove selected items from all items
+        selected_fields.forEach(all_fields::remove);
+
+    }
+
+    public static void deleteBGItems()
+    {
+        ObservableList<BoardGames> selected_fields, all_fields;
+
+        all_fields = BoardGameView.table.getItems();
+
+        //sets selected_fields to the user selected items from the table
+        selected_fields = BoardGameView.table.getSelectionModel().getSelectedItems();
+
+        //remove selected items from all items
+        selected_fields.forEach(all_fields::remove);
+
+    }
+
+    public static void deleteCGItems()
+    {
+        ObservableList<CardGames> selected_fields, all_fields;
+
+        all_fields = CardGameView.table.getItems();
+
+        //sets selected_fields to the user selected items from the table
+        selected_fields = CardGameView.table.getSelectionModel().getSelectedItems();
+
+        //remove selected items from all items
+        selected_fields.forEach(all_fields::remove);
 
     }
 }
