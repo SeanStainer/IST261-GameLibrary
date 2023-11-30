@@ -19,6 +19,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import Model.VideoGames;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class VideoGameView 
@@ -185,7 +187,13 @@ public class VideoGameView
 		hbox.getChildren().addAll(gridPanels, GameInfoView.systemsInfo(), genreVBox);
 
 		//set an observable list of arrayList data that is saved to start the data in the table
-		Game.restoreVGData();
+		if(fileCheck())
+		{
+			Game.restoreVGData();
+		}
+		else {
+			Game.videoGameData = new ArrayList<>();
+		}
 		//System.out.println(Game.videoGameData.toString());
 		//set an observable list of arrayList data that is saved to start the data in the table
 		tableData = FXCollections.observableArrayList(Game.videoGameData);
@@ -213,7 +221,29 @@ public class VideoGameView
 		return primaryStage;
 
 	}
+	public static boolean fileCheck()
+	{
+		FileInputStream fis = null;
+		ObjectInputStream in = null;
 
+		try {
+			fis = new FileInputStream(Game.vgDataFileName);
+
+			if(fis.available() != 0){
+				System.out.println("file available");
+				return true;
+			}
+			else{
+				System.out.println("file not available");
+				return false;
+			}
+
+		}
+		catch(Exception ex)
+		{
+			return false;
+		}
+	}
 	/*
 	* Test data for the tableView
 	* return an observable list with one set of data

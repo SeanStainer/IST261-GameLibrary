@@ -23,9 +23,9 @@ public class Game implements Serializable
 	public static ArrayList<CardGames> cardGameData = new ArrayList<CardGames>();
 
 	//create strings for the filenames to store previously entered data
-	private static final String vgDataFileName = "videoGames.ser";
-	private static final String bgDataFileName = "boardGames.ser";
-	private static final String cgDataFileName = "cardGames.ser";
+	public static final String vgDataFileName = "videoGames.ser";
+	public static final String bgDataFileName = "boardGames.ser";
+	public static final String cgDataFileName = "cardGames.ser";
 	//constructor overload
 	public Game(String name, String genre, String system, int playerCount)
 	{
@@ -152,7 +152,7 @@ public class Game implements Serializable
 			cardGameData = (ArrayList<CardGames>)cin.readObject();
 			cin.close();
 			if(cardGameData.isEmpty()){
-				System.out.println("There are no Board games in the game list");
+				System.out.println("There are no Card games in the game list");
 			}
 
 			//test if data successfully stores into the array list

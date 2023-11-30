@@ -15,6 +15,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class BoardGameView
@@ -30,8 +34,7 @@ public class BoardGameView
     public static CheckBox box6;
     public static CheckBox box7;
     public static CheckBox box8;
-    public static Stage BoardGameInfo()
-    {
+    public static Stage BoardGameInfo(){
         //Create a stage
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Board Game Information");
@@ -150,7 +153,13 @@ public class BoardGameView
         developerColumn.setCellValueFactory(new PropertyValueFactory<BoardGames, Developers>("developerInfo"));
 
         //set an observable list of arrayList data that is saved to start the data in the table
-        Game.restoreBGData();
+        if(fileCheck())
+        {
+            Game.restoreBGData();
+        }
+        else {
+            Game.boardGameData = new ArrayList<>();
+        }
         //System.out.println(Game.videoGameData.toString());
         //set an observable list of arrayList data that is saved to start the data in the table
         tableData = FXCollections.observableArrayList(Game.boardGameData);
@@ -179,6 +188,31 @@ public class BoardGameView
 
 
     }
+
+    public static boolean fileCheck()
+    {
+        FileInputStream fis = null;
+        ObjectInputStream in = null;
+
+        try {
+            fis = new FileInputStream(Game.bgDataFileName);
+
+            if(fis.available() != 0){
+                System.out.println("file available");
+                return true;
+            }
+            else{
+                System.out.println("file not available");
+                return false;
+            }
+
+        }
+        catch(Exception ex)
+        {
+            return false;
+        }
+    }
+
 
     public static String bgGenreData()
     {

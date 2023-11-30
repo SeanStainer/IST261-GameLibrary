@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class CardGameView
@@ -94,7 +96,7 @@ public class CardGameView
          * */
 
         VBox gridPanels = new VBox();
-        gridPanels.getChildren().addAll(cardGameGrid, DevelopersView.DeveloperInfo());
+        gridPanels.getChildren().add(cardGameGrid);
 
 
         HBox hbox = new HBox();
@@ -141,7 +143,13 @@ public class CardGameView
         jokerColumn.setCellValueFactory(new PropertyValueFactory<CardGames, Boolean>("joker"));
 
         //set an observable list of arrayList data that is saved to start the data in the table
-        Game.restoreCGData();
+        if(fileCheck())
+        {
+            Game.restoreCGData();
+        }
+        else {
+            Game.cardGameData = new ArrayList<>();
+        }
         //set an observable list of arrayList data that is saved to start the data in the table
         cgTable = FXCollections.observableArrayList(Game.cardGameData);
         table.setItems(cgTable);
@@ -168,6 +176,29 @@ public class CardGameView
         return primaryStage;
 
 
+    }
+    public static boolean fileCheck()
+    {
+        FileInputStream fis = null;
+        ObjectInputStream in = null;
+
+        try {
+            fis = new FileInputStream(Game.cgDataFileName);
+
+            if(fis.available() != 0){
+                System.out.println("file available");
+                return true;
+            }
+            else{
+                System.out.println("file not available");
+                return false;
+            }
+
+        }
+        catch(Exception ex)
+        {
+            return false;
+        }
     }
     public static Boolean jokerData()
     {
