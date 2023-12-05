@@ -169,7 +169,7 @@ public class CardGameView
         mainScreen.getChildren().add(table);
 
         //create a scene to display and add the main screen vbox
-        Scene scene = new Scene(mainScreen,600,800);
+        Scene scene = new Scene(mainScreen,525,600);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -224,19 +224,38 @@ public class CardGameView
     }
     public static String genreData()
     {
+        //string to store genres
         String genres = "";
+        //boolean to store if an item is selected
+        boolean itemsSelected = false;
 
-        if(box1.isSelected())
+        if(box1.isSelected()) {
             genres += "Collectible, ";
-        if(box2.isSelected())
+            itemsSelected = true;
+        }
+        if(box2.isSelected()) {
             genres += "Classic, ";
-        if(box3.isSelected())
+            itemsSelected = true;
+        }
+        if(box3.isSelected()) {
             genres += "Poker, ";
-        if(box4.isSelected())
+            itemsSelected = true;
+        }
+        if(box4.isSelected()) {
             genres += "Party, ";
+            itemsSelected = true;
+        }
 
-        //remove the ', ' from the end of the string
-        genres = genres.substring(0, genres.length() - 2);
+        //if no items are selected return N/A else get rid of ", "
+        if(itemsSelected)
+        {
+            //remove the ', ' from the end of the string
+            genres = genres.substring(0, genres.length() - 2);
+        }
+        else
+        {
+            genres = "N/A";
+        }
 
         return genres;
     }

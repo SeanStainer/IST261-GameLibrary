@@ -180,7 +180,7 @@ public class BoardGameView
         mainScreen.getChildren().add(table);
 
         //create a scene to display and add the main screen vbox
-        Scene scene = new Scene(mainScreen,600,800);
+        Scene scene = new Scene(mainScreen,650,700);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -216,27 +216,54 @@ public class BoardGameView
 
     public static String bgGenreData()
     {
+        //string to store genres
         String genres = "";
+        //boolean to store if an item is selected
+        boolean itemsSelected = false;
 
-        if(box1.isSelected())
+        if(box1.isSelected()) {
             genres += "Abstract, ";
-        if(box2.isSelected())
+            itemsSelected = true;
+        }
+        if(box2.isSelected()) {
             genres += "Area Control, ";
-        if(box3.isSelected())
+            itemsSelected = true;
+        }
+        if(box3.isSelected()) {
             genres += "Campaign, ";
-        if(box4.isSelected())
+            itemsSelected = true;
+        }
+        if(box4.isSelected()) {
             genres += "Deck building, ";
-        if(box5.isSelected())
+            itemsSelected = true;
+        }
+        if(box5.isSelected()) {
             genres += "Dice, ";
-        if(box6.isSelected())
+            itemsSelected = true;
+        }
+        if(box6.isSelected()) {
             genres += "Dungeon-Crawler, ";
-        if(box7.isSelected())
+            itemsSelected = true;
+        }
+        if(box7.isSelected()) {
             genres += "RPG, ";
-        if(box8.isSelected())
+            itemsSelected = true;
+        }
+        if(box8.isSelected()) {
             genres += "War, ";
+            itemsSelected = true;
+        }
 
-        //remove the ', ' from the end of the string
-        genres = genres.substring(0, genres.length() - 2);
+        //if no items are selected return N/A else get rid of ", "
+        if(itemsSelected)
+        {
+            //remove the ', ' from the end of the string
+            genres = genres.substring(0, genres.length() - 2);
+        }
+        else
+        {
+            genres = "N/A";
+        }
 
         return genres;
     }

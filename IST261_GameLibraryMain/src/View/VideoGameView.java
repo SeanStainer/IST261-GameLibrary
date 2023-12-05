@@ -125,7 +125,7 @@ public class VideoGameView
 		box9 = new CheckBox("Shooter");
 		box10 = new CheckBox("Sports");
 		box11 = new CheckBox("Survival");
-		box12 = new CheckBox("Casual");
+		box12 = new CheckBox("Battle Royale");
 				
 		//create a vbox layout w/ padding 10 between children and 30 all around vbox
 		VBox genreCheckVbox = new VBox(10);
@@ -292,35 +292,70 @@ public class VideoGameView
 
 	public static String genreData()
 	{
+		//string to store genres
 		String genres = "";
+		//boolean to store if an item is selected
+		boolean itemsSelected = false;
 
-		if(box1.isSelected())
+		if(box1.isSelected()) {
 			genres += "Action, ";
-		if(box2.isSelected())
+			itemsSelected = true;
+		}
+		if(box2.isSelected()) {
 			genres += "Adventure, ";
-		if(box3.isSelected())
+			itemsSelected = true;
+		}
+		if(box3.isSelected()) {
 			genres += "Fighting, ";
-		if(box4.isSelected())
+			itemsSelected = true;
+		}
+		if(box4.isSelected()) {
 			genres += "Open World, ";
-		if(box5.isSelected())
+			itemsSelected = true;
+		}
+		if(box5.isSelected()) {
 			genres += "Poker, ";
-		if(box6.isSelected())
+			itemsSelected = true;
+		}
+		if(box6.isSelected()) {
 			genres += "Puzzle, ";
-		if(box7.isSelected())
+			itemsSelected = true;
+		}
+		if(box7.isSelected()) {
 			genres += "Racing, ";
-		if(box8.isSelected())
+			itemsSelected = true;
+		}
+		if(box8.isSelected()) {
 			genres += "RPG, ";
-		if(box9.isSelected())
+			itemsSelected = true;
+		}
+		if(box9.isSelected()) {
 			genres += "Shooter, ";
-		if(box10.isSelected())
+			itemsSelected = true;
+		}
+		if(box10.isSelected()) {
 			genres += "Sports, ";
-		if(box11.isSelected())
+			itemsSelected = true;
+		}
+		if(box11.isSelected()) {
 			genres += "Survival, ";
-		if(box12.isSelected())
-			genres += "Casual, ";
+			itemsSelected = true;
+		}
+		if(box12.isSelected()) {
+			genres += "Battle Royale, ";
+			itemsSelected = true;
+		}
 
-		//remove the ', ' from the end of the string
-		genres = genres.substring(0, genres.length() - 2);
+		//if no items are selected return N/A else get rid of ", "
+		if(itemsSelected)
+		{
+			//remove the ', ' from the end of the string
+			genres = genres.substring(0, genres.length() - 2);
+		}
+		else
+		{
+			genres = "N/A";
+		}
 
 		return genres;
 	}

@@ -106,37 +106,42 @@ public class GameInfoView
 		return systemCheckVbox;
 	}
 	
-	public static String systemData()
-	{
+	public static String systemData() {
+		//string that stores all systems used
 		String systems = "";
+		//boolean that stores if a system is selected or not for input validation
+		boolean itemsSelected = false;
 
-		if(sysBox1.isSelected())
-		{
+		if (sysBox1.isSelected()) {
 			systems += "PC, ";
+			itemsSelected = true;
 		}
-		if(sysBox2.isSelected())
-		{
+		if (sysBox2.isSelected()) {
 			systems += "Xbox, ";
+			itemsSelected = true;
 		}
-		if(sysBox3.isSelected())
-		{
+		if (sysBox3.isSelected()) {
 			systems += "Playstation, ";
+			itemsSelected = true;
 		}
-		if(sysBox4.isSelected())
-		{
+		if (sysBox4.isSelected()) {
 			systems += "Nintendo, ";
+			itemsSelected = true;
 		}
-		if(sysBox5.isSelected())
-		{
+		if (sysBox5.isSelected()) {
 			systems += "In-Person, ";
+			itemsSelected = true;
 		}
 
-		//remove the ', ' from the end of the string
-		systems = systems.substring(0, systems.length() - 2);
+		//if no items are selected return N/A else get rid of ", "
+		if (itemsSelected) {
+			//remove the ', ' from the end of the string
+			systems = systems.substring(0, systems.length() - 2);
+		} else {
+			systems = "N/A";
+		}
 
 		return systems;
 	}
-
-	
 	
 }
